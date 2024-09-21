@@ -64,7 +64,6 @@ function checkGuess() {
 
 function hideAllMessages() {
   for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
-    console.log(messages);
     messages[elementIndex] = 'none';
   }
 }
