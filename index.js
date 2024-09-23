@@ -25,32 +25,57 @@ function getRandomNumber(min, max) {
 function checkGuess() {
   // Get value from guess input element
   const guess = parseInt(guessInput.value, 10);
+  console.log("attempts:"+ attempts);
+  console.log("quess:" + guess);
+  console.log("targetnumber:" + targetNumber);
+  
+  console.log('maxnumberofattempt:' + maxNumberOfAttempts);
+  console.log("")
   attempts = attempts + 1;
+  console.log("tooHigh:" , tooHighMessage);
 
   hideAllMessages();
+
+
 
   if (guess === targetNumber) {
     numberOfGuessesMessage.style.display = '';
     numberOfGuessesMessage.innerHTML = `You made ${attempts} guesses`;
 
     correctMessage.style.display = '';
+    correctMessage.innerText = 'gusses correctly';
 
     submitButton.disabled = true;
     guessInput.disabled = true;
   }
-
+  
   if (guess !== targetNumber) {
     if (guess < targetNumber) {
       tooLowMessage.style.display = '';
+      tooLowMessage.innerText = 'Tow-Low';
     } else {
       tooLowMessage.style.display = '';
+      tooHighMessage.innerText = `Tow-High`;
+      tooLowMessage
+    } 
+
     }
 
+    
+
     const remainingAttempts = maxNumberOfAttempts - attempts;
+    console.log("remainttempt:" + remainingAttempts);
+    
 
     numberOfGuessesMessage.style.display = '';
+
     numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <br> ${remainingAttempts} guesses remaining`;
-  }
+    
+    if (attempts === maxNumberOfAttempts - 1 ) {
+      numberOfGuessesMessage.innerHTML = `You guessed ${guess}. <em> singular </em> <br> ${remainingAttempts} guesses remaining`;
+    
+
+    }
 
   if (attempts === maxNumberOfAttempts) {
     submitButton.disabled = true;
@@ -61,10 +86,18 @@ function checkGuess() {
 
   resetButton.style.display = '';
 }
-
+console.log(messages);
 function hideAllMessages() {
   for (let elementIndex = 0; elementIndex <= messages.length; elementIndex++) {
     messages[elementIndex] = 'none';
+    tooHighMessage.innerText = "";
+    tooLowMessage.innerText = "";
+    correctMessage.innerText = "";
+    numberOfGuessesMessage.innerText = "";
+    maxNumberOfAttempts.innerText = "";
+
+
+   
   }
 }
 
@@ -74,7 +107,7 @@ function setup() {
   console.log(`target number: ${targetNumber}`);
 
   // Reset number of attempts
-  maxNumberOfAttempts = 0;
+  maxNumberOfAttempts = 5;
 
   // Enable the input and submit button
   submitButton.disabeld = false;
