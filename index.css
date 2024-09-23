@@ -1,4 +1,10 @@
+body{
+  background-color: beige;
+  color: burlywood;
+}
 main {
+  background-color: aliceblue;
+  color:rgb(239, 145, 22);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -12,4 +18,16 @@ main {
 
 #reset {
   margin: 20px;
+}
+
+#too-low{
+  background-color: rgb(231, 236, 240);
+  color: brown;
+  border: 1px solid r;
+}
+
+.main-message{
+  background-color:cornsilk;
+  color:black
+  margin-top: 3rem;
 }
