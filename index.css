@@ -3,7 +3,7 @@ body{
   color: burlywood;
 }
 main {
-  background-color: aliceblue;
+  background-color: rgb(155, 201, 241);
   color:rgb(239, 145, 22);
   display: flex;
   justify-content: center;
